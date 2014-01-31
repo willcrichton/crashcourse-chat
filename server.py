@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import os
 import binascii
 
@@ -11,6 +11,15 @@ def random_id():
 def index():
     return render_template('index.html')
 
+@app.route('/new')
+def new():
+    room_id = random_id()
+    return redirect('/%s' % room_id)
+
+@app.route('/<room_id>')
+def chat(room_id):
+    return render_template('chat.html', room_id=room_id)
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
 

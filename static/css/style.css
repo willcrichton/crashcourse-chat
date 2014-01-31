@@ -2,4 +2,16 @@
 
 body { padding: 20px; }
 
+#chat-container {
+    border: 1px solid black;
+    height: 300px;
+    overflow: auto;
+    padding: 5px;    
+    margin-top: 5px;
+}
+
+.message {
+    position: relative;
+}
+
 /* more styles here ... */
